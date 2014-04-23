@@ -6,8 +6,7 @@ It will make the API call and return the parsed json result.
 
 ## Install
 
-Just run as usual:
-`npm install`
+Just run as usual: `npm install foursquare-venues`
 
 ## Test
 
@@ -43,4 +42,5 @@ foursquare.exploreVenues({ near: 'New York' }, function(error, response) {
 ```
 
 ## Note
-**Please report any bug, issue, ... on the issue list**
+
+*Please report any bug, issue, ... on the issue list*
