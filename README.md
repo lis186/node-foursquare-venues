@@ -1,4 +1,4 @@
-foursquare-venues
+foursquare-venues [![Build Status](https://travis-ci.org/Woorank/node-foursquare-venues.svg)](https://travis-ci.org/Woorank/node-foursquare-venues)
 =================
 
 This a simple nodejs implementation of the Foursquare Venues API with userless access (no OAuth token requried).
