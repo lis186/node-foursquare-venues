@@ -2,7 +2,7 @@
   "name": "foursquare-venues",
   "version": "0.0.1",
   "description": "Fooursquare Venues API v2 library.",
-  "main": "./lib",
+  "main": "./foursquareVenues",
   "dependencies": {
     "request": "~2.34.0"
   },
@@ -32,7 +32,10 @@
     "venues search",
     "venues explore"
   ],
-  "author": "Olivier Cuypers>",
+  "author": "Woorank",
+  "maintainers": [
+    "Olivier Cuypers (https://github.com/OlivierCuyp)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Woorank/node-boilerplate/issues"
