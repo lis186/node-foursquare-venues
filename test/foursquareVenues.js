@@ -4,10 +4,10 @@
 
 var expect = require('chai').expect;
 var nock   = require('nock');
-var foursquareVenues = require('../lib');
+var FoursquareVenues = require('../foursquareVenues');
 
 describe('Foursquare venues', function () {
-  var foursquareVenues = foursquareVenues(
+  var foursquareVenues = new FoursquareVenues(
     'SOME_CLIENT_ID',
     'SOME_CLIENT_SECRET'
   );
