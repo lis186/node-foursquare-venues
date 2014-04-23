@@ -17,7 +17,9 @@ This will check for code quality with jshint and run through the entire test sui
 ## Exemple
 
 ```js
-var foursquare = require('foursquareVenues');
+var Foursquare = require('foursquareVenues');
+
+var foursquare = new Foursquare('CLEINT_ID', 'SECRET_ID');
 
 foursquare.getCategories(function(error, response) {
   if (error) { return console.error(error) }
@@ -41,4 +43,4 @@ foursquare.exploreVenues({ near: 'New York' }, function(error, response) {
 ```
 
 ## Note
-Please report any bug, issue, ... on the issue list
+**Please report any bug, issue, ... on the issue list**
