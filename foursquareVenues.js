@@ -17,7 +17,7 @@ var baseUrl = 'https://api.foursquare.com/v2/venues/';
 // Used to handle the response for all the API calls
 function createResponseHandler(callback) {
   return function (err, res, body) {
-    if (res.err) {
+    if (err) {
       return callback(err, null);
     }
     if (res.statusCode >= 300) {
