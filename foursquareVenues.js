@@ -24,11 +24,14 @@ function createResponseHandler(callback) {
       return callback(body, null);
     }
     // Since JSON parse can fail
+    var jsonData;
     try {
-      callback(null, JSON.parse(body));
+      jsonData = JSON.parse(body);
     } catch (error) {
-      callback(error, null);
+      return callback(error, null);
     }
+
+    return callback(null, jsonData);
   };
 }
 
