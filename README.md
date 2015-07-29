@@ -30,6 +30,11 @@ foursquare.getVenue('SOME_VENUE_ID', function(error, response) {
   console.log(response);
 });
 
+foursquare.getVenuePhotos('SOME_VENUE_ID', {limit: 5}, function(error, response) {
+  if (error) { return console.error(error) }
+  console.log(response);
+});
+
 foursquare.searchVenues({ near: 'New York' }, function(error, response) {
   if (error) { return console.error(error) }
   console.log(response);
