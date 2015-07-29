@@ -11,7 +11,7 @@
 var request = require('request');
 var querystring = require('querystring');
 
-var baseUrl = 'https://api.foursquare.com/v2/venues/';
+var baseUrl = 'https://api.foursquare.com/v2/';
 
 
 // Used to handle the response for all the API calls
@@ -79,7 +79,7 @@ FoursquareVenues.prototype.createUrl = function (path, options) {
  * @return {Undefined}
  */
 FoursquareVenues.prototype.getCategories = function (callback) {
-  request(this.createUrl('categories'), createResponseHandler(callback));
+  request(this.createUrl('venues/categories'), createResponseHandler(callback));
 };
 
 /**
@@ -92,7 +92,10 @@ FoursquareVenues.prototype.getCategories = function (callback) {
  * @return {Undefined}
  */
 FoursquareVenues.prototype.searchVenues = function (options, callback) {
-  request(this.createUrl('search', options), createResponseHandler(callback));
+  request(
+    this.createUrl('venues/search', options),
+    createResponseHandler(callback)
+  );
 };
 
 /**
@@ -105,7 +108,10 @@ FoursquareVenues.prototype.searchVenues = function (options, callback) {
  * @return {Undefined}
  */
 FoursquareVenues.prototype.exploreVenues = function (options, callback) {
-  request(this.createUrl('explore', options), createResponseHandler(callback));
+  request(
+    this.createUrl('venues/explore', options),
+    createResponseHandler(callback)
+  );
 };
 
 /**
@@ -116,7 +122,21 @@ FoursquareVenues.prototype.exploreVenues = function (options, callback) {
  * @return {Undefined}
  */
 FoursquareVenues.prototype.getVenue = function (venueId, callback) {
-  request(this.createUrl(venueId), createResponseHandler(callback));
+  request(this.createUrl('venues/' + venueId), createResponseHandler(callback));
+};
+
+/**
+ * Gets one venue photos matching the options
+ *
+ * @param  {String}   venueId
+ * @param  {Function} callback
+ * @return {Undefined}
+ */
+FoursquareVenues.prototype
+.getVenuePhotos= function(venueId, options, callback) {
+  var uriParts = this.createUrl('venues/' + venueId, options).split('?');
+  var uri = uriParts[0] + '/photos?' + uriParts[1];
+  request(uri, createResponseHandler(callback));
 };
 
 module.exports = FoursquareVenues;

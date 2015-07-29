@@ -47,6 +47,20 @@ describe('Foursquare venues', function () {
     });
   });
 
+  it('Should get photos from a venue', function (done) {
+    var fixture = require('./fixtures/photos.json');
+
+    scope.get('/v2/venues/some_id')
+    .reply(200, fixture);
+
+    foursquareVenues.getVenue('some_id',  function (err, res) {
+      if (err) { return done(err); }
+      expect(res).to.deep.equal(fixture);
+
+      done();
+    });
+  });
+
   it('Should search venues', function (done) {
     var fixture = require('./fixtures/venues.json');
 
